@@ -8,11 +8,22 @@ namespace Lab10_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        // 'Index' action
+        // First 'Index' action
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
+
+        // Second 'Index' action
+        //[HttpPost]
+        //public IActionResult Index(decimal winePrice, int pointRating)
+        //{
+        //    // Determine what the params above will go into
+
+
+        //    // Return a RedirectToAction
+
+        //}
     }
 }
