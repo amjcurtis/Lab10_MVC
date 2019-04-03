@@ -17,12 +17,12 @@
         <h1>@greeting!</h1>
 
         @* Use get or post method in form? And 'action' attr in form is path to where I want to send the form input to, namely Results view *@
-        <form method="get" action="Home/Results">
+        <form method="post">
             <label for="WinePrice">Wine Price</label>
-            <input type="text" maxlength="10" name="WinePrice" />
+            <input type="text" maxlength="10" name="TargetPrice" />
 
             <label for="PointRating">Point Rating</label>
-            <input type="number" maxlength="2" name="PointRating" />
+            <input type="number" maxlength="2" name="WineRating" />
 
             <button type="submit">Submit!</button>
         </form>
