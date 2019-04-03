@@ -17,12 +17,13 @@ namespace Lab10_MVC.Controllers
 
         // Second 'Index' action
         //[HttpPost]
-        //public IActionResult Index(decimal winePrice, int pointRating)
+        //public IActionResult Index(int targetPrice, int wineRating)
         //{
-        //    // Determine what the params above will go into
+            // Args above will go into GetWineList method
 
 
-        //    // Return a RedirectToAction
+
+            // Return a RedirectToAction
 
         //}
     }
