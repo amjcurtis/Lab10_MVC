@@ -8,21 +8,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Don't Wine About It</title>
-    <link rel="stylesheet" href="~/style/Reset.css" />
-    <link rel="stylesheet" href="~/style/StyleSheet.css" />
+    <link rel="stylesheet" href="~/Styles/Reset.css" />
+    <link rel="stylesheet" href="~/Styles/StyleSheet.css" />
 </head>
-<body>
-    <h1>@greeting!</h1>
+<body class="bg">
 
-    <form method="post">
-        <label for="WinePrice">Wine Price</label>
-        <input type="text" maxlength="10" name="WinePrice" />
+    <section class="form-section">
+        <h1>@greeting!</h1>
 
-        <label for="PointRating">Point Rating</label>
-        <input type="number" maxlength="2" name="PointRating" />
+        @* Use get or post method in form? And 'action' attr in form is path to where I want to send the form input to, namely Results view *@
+        <form method="post">
+            <label for="WinePrice">Wine Price</label>
+            <input type="text" maxlength="10" name="TargetPrice" />
 
-        <button type="submit">Submit!</button>
-    </form>
+            <label for="PointRating">Point Rating</label>
+            <input type="number" maxlength="2" name="WineRating" />
+
+            <button type="submit">Submit!</button>
+        </form>
+    </section>
 
 </body>
 </html>

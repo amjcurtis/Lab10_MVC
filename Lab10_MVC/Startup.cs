@@ -32,7 +32,7 @@ namespace Lab10_MVC
             {
                 route.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"
+                    template: "{controller=Home}/{action=Index}/{id?}" // Nullable ID
                     );
             });
 
