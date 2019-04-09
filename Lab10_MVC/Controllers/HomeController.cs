@@ -16,25 +16,25 @@ namespace Lab10_MVC.Controllers
         }
 
 		// Second 'Index' action
-	   [HttpPost]
-		public IActionResult Index(int TargetPrice, int WineRating)
-		{
-			//Args above will go into GetWineList method
+	 //  [HttpPost]
+		//public IActionResult Index(int TargetPrice, int WineRating)
+		//{
+		//	//Args above will go into GetWineList method
 
-			// 
+		//	// 
 
-			//Return a RedirectToAction
+		//	//Return a RedirectToAction
 
 
-		}
+		//}
 
 		// 'Result' action
-		[HttpGet]
-		public IActionResult Results(int TargetPrice, int WineRating)
-		{
-			// Call method in parens of Results view
-			return View(GetWineList(TargetPrice, WineRating));
+		//[HttpGet]
+		//public IActionResult Results(int TargetPrice, int WineRating)
+		//{
+		//	// Call method in parens of Results view
+		//	return View(GetWineList(TargetPrice, WineRating));
 
-		}
+		//}
 	}
 }
