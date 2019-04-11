@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lab10_MVC.Classes;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,25 +17,21 @@ namespace Lab10_MVC.Controllers
         }
 
 		// Second 'Index' action
-	 //  [HttpPost]
-		//public IActionResult Index(int TargetPrice, int WineRating)
-		//{
-		//	//Args above will go into GetWineList method
+		[HttpPost]
+		public IActionResult Index(int targetPrice, int pointRating)
+		{
+			Wine wine = new Wine();
+			wine.Price = targetPrice;
+			wine.Points = pointRating;
 
-		//	// 
+			return RedirectToAction("Results", wine);
+		}
 
-		//	//Return a RedirectToAction
-
-
-		//}
-
-		// 'Result' action
-		//[HttpGet]
-		//public IActionResult Results(int TargetPrice, int WineRating)
-		//{
-		//	// Call method in parens of Results view
-		//	return View(GetWineList(TargetPrice, WineRating));
-
-		//}
+		// 'Results' action
+		[HttpGet]
+		public IActionResult Results(int targetPrice, int pointRating)
+		{
+			return View(GetWineList(targetPrice, pointRating));
+		}
 	}
-}
+	}

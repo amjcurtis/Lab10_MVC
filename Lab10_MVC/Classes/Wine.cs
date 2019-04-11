@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Lab10_MVC.Classes
@@ -22,7 +23,7 @@ namespace Lab10_MVC.Classes
 
         public static List<Wine> GetWineList(int targetPrice, int wineRating)
         {
-            //string path = "../Models/wine.csv";
+			// Code to always look at your `wwwroot` folder
 			string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../wwwroot/wine.csv");
 
 			List<Wine> wineList = new List<Wine>();
@@ -34,11 +35,17 @@ namespace Lab10_MVC.Classes
             }
 
 			//TODO For each line in converted CSV data, convert it into Wine object using object initializer and add it to Line<Wine>
+			Wine csv = 
+
+			// Regex command to parse the CSV 
+			Regex parser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
+			//TODO Linq query to filter CSV results
 
 			//TODO Wine constructor (in for loop)
 
 
-			//TODO Return List<Wine>
+			// Return List<Wine>
 			return wineList;
         }
 
