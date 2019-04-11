@@ -26,22 +26,50 @@ namespace Lab10_MVC.Classes
 			// Code to always look at your `wwwroot` folder
 			string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../wwwroot/wine.csv");
 			
-			// Instantiate new wine list
-			List<Wine> wineList = new List<Wine>();
-
 			// Read CSV
-            var data = new StreamReader(File.OpenRead(path));
+            //var data = new StreamReader(File.OpenRead(path));
 
 			// Put read CSV data into array or similar
 			// Skip header
+			//string[] dataAsArray = /* readalllines */;
 
-			// Inside loop to specify certain number of lines
-			for (int i = 1; i < data.Length; i++)
+			// Instantiate new wine list
+			List<Wine> wineList = new List<Wine>();
+
+			var selectedLines = File.ReadAllLines(path)
+							.Skip(1)
+							.Take(100);
+
+			var filteredLines = selectedLines
+								.Where(wine => wine.Price <= targetPrice);
+
+			foreach (string line in selectedLines)
 			{
-				string currentString = data.ReadLine();
-				string[] csvData = Regex.Split(currentString, ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+				string[] rowColumn = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
 
+				Wine wine = new Wine
+				{
+					ID = int.Parse(rowColumn[0]),
+					Country = rowColumn[1],
+					Description = rowColumn[2],
+					Designation = rowColumn[3],
+					Points = int.Parse(rowColumn[4]),
+					Price = decimal.Parse(rowColumn[5]),
+					Region_1 = rowColumn[6],
+					Region_2 = rowColumn[7],
+					Variety = rowColumn[8],
+					Winery = rowColumn[9]
+				};
+
+				wineList.Add(wine);
 			}
+
+			//// Inside loop to specify certain number of lines
+			//for (int i = 1; i < dataAsArray.Length; i++)
+			//{
+			//	string line = data.ReadLine();
+
+			//}
 
 			//TODO Linq query to filter CSV results
 			var wineResults = from
