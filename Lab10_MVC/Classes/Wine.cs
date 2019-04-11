@@ -25,25 +25,28 @@ namespace Lab10_MVC.Classes
         {
 			// Code to always look at your `wwwroot` folder
 			string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../wwwroot/wine.csv");
-
+			
+			// Instantiate new wine list
 			List<Wine> wineList = new List<Wine>();
 
-            var data = "";
-            using (StreamReader sr = File.OpenText(path))
-            {
-                data = sr.ReadToEnd();
-            }
+			// Read CSV
+            var data = new StreamReader(File.OpenRead(path));
 
-			//TODO For each line in converted CSV data, convert it into Wine object using object initializer and add it to Line<Wine>
-			Wine csv = 
+			// Put read CSV data into array or similar
+			// Skip header
 
-			// Regex command to parse the CSV 
-			Regex parser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+			// Inside loop to specify certain number of lines
+			for (int i = 1; i < data.Length; i++)
+			{
+				string currentString = data.ReadLine();
+				string[] csvData = Regex.Split(currentString, ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
+			}
 
 			//TODO Linq query to filter CSV results
-
-			//TODO Wine constructor (in for loop)
-
+			var wineResults = from
+							  where /* points are >= desired point rating */
+							  where /* price <= desired target price */
 
 			// Return List<Wine>
 			return wineList;

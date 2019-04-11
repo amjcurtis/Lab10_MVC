@@ -20,11 +20,7 @@ namespace Lab10_MVC.Controllers
 		[HttpPost]
 		public IActionResult Index(int targetPrice, int pointRating)
 		{
-			Wine wine = new Wine();
-			wine.Price = targetPrice;
-			wine.Points = pointRating;
-
-			return RedirectToAction("Results", wine);
+			return RedirectToAction("Results", new { targetPrice, pointRating });
 		}
 
 		// 'Results' action
