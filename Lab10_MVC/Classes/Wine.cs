@@ -15,6 +15,7 @@ namespace Lab10_MVC.Classes
         public string Designation { get; set; }
         public int Points { get; set; }
         public decimal Price { get; set; }
+		public string Province { get; set; }
         public string Region_1 { get; set; }
         public string Region_2 { get; set; }
         public string Variety { get; set; }
@@ -26,27 +27,24 @@ namespace Lab10_MVC.Classes
 			// Code to always look at your `wwwroot` folder
 			string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../wwwroot/wine.csv");
 			
-			// Read CSV
-            //var data = new StreamReader(File.OpenRead(path));
-
-			// Put read CSV data into array or similar
-			// Skip header
-			//string[] dataAsArray = /* readalllines */;
-
 			// Instantiate new wine list
 			List<Wine> wineList = new List<Wine>();
 
+			// Read CSV
 			var selectedLines = File.ReadAllLines(path)
 							.Skip(1)
 							.Take(100);
 
 			var filteredLines = selectedLines
 								.Where(wine => wine.Price <= targetPrice);
-
+			
+			// Iterate over selected lines and generate Wine object from each line in CSV
 			foreach (string line in selectedLines)
 			{
+				// Divide current line/row into columns and put into string array
 				string[] rowColumn = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
 
+				// Instantiate new wine object with contents of array of columns from each row
 				Wine wine = new Wine
 				{
 					ID = int.Parse(rowColumn[0]),
@@ -55,30 +53,19 @@ namespace Lab10_MVC.Classes
 					Designation = rowColumn[3],
 					Points = int.Parse(rowColumn[4]),
 					Price = decimal.Parse(rowColumn[5]),
-					Region_1 = rowColumn[6],
-					Region_2 = rowColumn[7],
-					Variety = rowColumn[8],
-					Winery = rowColumn[9]
+					Province = rowColumn[6],
+					Region_1 = rowColumn[7],
+					Region_2 = rowColumn[8],
+					Variety = rowColumn[9],
+					Winery = rowColumn[10]
 				};
 
+				// Add new Wine object to wine list to be returned from method
 				wineList.Add(wine);
 			}
 
-			//// Inside loop to specify certain number of lines
-			//for (int i = 1; i < dataAsArray.Length; i++)
-			//{
-			//	string line = data.ReadLine();
-
-			//}
-
-			//TODO Linq query to filter CSV results
-			var wineResults = from
-							  where /* points are >= desired point rating */
-							  where /* price <= desired target price */
-
-			// Return List<Wine>
+			// Return list of wines
 			return wineList;
         }
-
     }
 }

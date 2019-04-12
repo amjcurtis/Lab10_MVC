@@ -30,4 +30,4 @@ namespace Lab10_MVC.Controllers
 			return View(GetWineList(targetPrice, pointRating));
 		}
 	}
-	}
+}
