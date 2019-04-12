@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Lab10_MVC.Classes.Wine>
+@{
+    string resultsMessage = "Here are the wines we found!";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="~/Styles/Reset.css" />
+    <link rel="stylesheet" href="~/Styles/StyleSheet.css" />
+</head>
+<body class="bg">
+
+    <div>
+        <h1>@resultsMessage</h1>
+
+        @foreach (var wine in Model)
+        {
+            <p>Region: @wine.Country | Rating: @wine.Points | Varietals: @wine.Variety | Winery: @wine.Winery | Description: @wine.Description</p>
+            <br />
+        }
+
+    </div>
+
+    <a asp-controller="Home" asp-action="Index">Back to Search</a>
+
+</body>
+</html>

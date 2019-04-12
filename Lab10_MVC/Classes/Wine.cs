@@ -9,7 +9,8 @@ namespace Lab10_MVC.Classes
 {
     public class Wine
     {
-        public int ID { get; set; }
+		// Properties of Wine class (taken from CSV header row)
+		public int ID { get; set; }
         public string Country { get; set; }
         public string Description { get; set; }
         public string Designation { get; set; }
@@ -20,8 +21,13 @@ namespace Lab10_MVC.Classes
         public string Region_2 { get; set; }
         public string Variety { get; set; }
         public string Winery { get; set; }
-
-
+		
+		/// <summary>
+		///  
+		/// </summary>
+		/// <param name="targetPrice"></param>
+		/// <param name="wineRating"></param>
+		/// <returns></returns>
         public static List<Wine> GetWineList(int targetPrice, int wineRating)
         {
 			// Code to always look at your `wwwroot` folder
@@ -30,14 +36,11 @@ namespace Lab10_MVC.Classes
 			// Instantiate new wine list
 			List<Wine> wineList = new List<Wine>();
 
-			// Read CSV
+			// Read CSV and get specified number of lines
 			var selectedLines = File.ReadAllLines(path)
 							.Skip(1)
-							.Take(100);
+							.Take(15);
 
-			var filteredLines = selectedLines
-								.Where(wine => wine.Price <= targetPrice);
-			
 			// Iterate over selected lines and generate Wine object from each line in CSV
 			foreach (string line in selectedLines)
 			{
@@ -64,8 +67,23 @@ namespace Lab10_MVC.Classes
 				wineList.Add(wine);
 			}
 
+			// Query wine list and filter based on user search input
+			var filteredWines = wineList
+								.Where(wine => wine.Points >= wineRating)
+								.Where(wine => wine.Price <= targetPrice)
+								.OrderByDescending(wine => wine.Points);
+
+			// Instantiate new list of wines reflecting filtered results
+			List<Wine> wineSearchResultsList = new List<Wine>();
+
+			// Populate new wine list with wines that meet parameters of user's search
+			foreach (var wine in filteredWines)
+			{
+				wineSearchResultsList.Add(wine);
+			}
+
 			// Return list of wines
-			return wineList;
+			return wineSearchResultsList;
         }
     }
 }

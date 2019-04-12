@@ -27,7 +27,7 @@ namespace Lab10_MVC.Controllers
 		[HttpGet]
 		public IActionResult Results(int targetPrice, int pointRating)
 		{
-			return View(GetWineList(targetPrice, pointRating));
+			return View(Wine.GetWineList(targetPrice, pointRating));
 		}
 	}
 }
