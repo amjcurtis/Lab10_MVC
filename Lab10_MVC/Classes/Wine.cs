@@ -23,11 +23,11 @@ namespace Lab10_MVC.Classes
         public string Winery { get; set; }
 		
 		/// <summary>
-		///  
+		///  Reads CSV file, instantiates Wine objects, and returns list of wines that match user search parameters
 		/// </summary>
-		/// <param name="targetPrice"></param>
-		/// <param name="wineRating"></param>
-		/// <returns></returns>
+		/// <param name="targetPrice">user's desired max price</param>
+		/// <param name="wineRating">user's desired minimum wine rating</param>
+		/// <returns>list of Wine objects matching user search parameters</returns>
         public static List<Wine> GetWineList(int targetPrice, int wineRating)
         {
 			// Code to always look at your `wwwroot` folder

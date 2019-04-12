@@ -9,21 +9,34 @@ namespace Lab10_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        // First 'Index' action
-        [HttpGet]
+		/// <summary>
+		/// First 'Index' action
+		/// </summary>
+		/// <returns>Home view</returns>
+		[HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-		// Second 'Index' action
+		/// <summary>
+		/// Second 'Index' action
+		/// </summary>
+		/// <param name="targetPrice">max wine price</param>
+		/// <param name="pointRating">min wine rating</param>
+		/// <returns>redirects to Results view</returns>
 		[HttpPost]
 		public IActionResult Index(int targetPrice, int pointRating)
 		{
 			return RedirectToAction("Results", new { targetPrice, pointRating });
 		}
 
-		// 'Results' action
+		/// <summary>
+		/// 'Results' action
+		/// </summary>
+		/// <param name="targetPrice">max wine price</param>
+		/// <param name="pointRating">min wine rating</param>
+		/// <returns>Results view</returns>
 		[HttpGet]
 		public IActionResult Results(int targetPrice, int pointRating)
 		{
