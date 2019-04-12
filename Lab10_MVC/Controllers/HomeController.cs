@@ -1,4 +1,4 @@
-﻿using Lab10_MVC.Classes;
+﻿using Lab10_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

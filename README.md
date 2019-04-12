@@ -46,4 +46,5 @@ Select and open `Lab10_MVC.sln`
 
 ## Attribution
 
-Andrew Roska ([Roketsu86](https://github.com/Roketsu86)) showed me how to read in a CSV file in a single elegant query using System.File and LINQ. He also pointed me to the .Skip() and .Take() methods. 
+* Andrew Roska ([Roketsu86](https://github.com/Roketsu86)) showed me how to read in a CSV file in a single elegant query using System.File and LINQ. He also pointed me to the .Skip() and .Take() methods. 
+* Website background image of vineyard: copyright 2019 [Michael Curtis Photography](https://www.michaelcurtisphotography.com/).

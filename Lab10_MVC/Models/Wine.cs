@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Lab10_MVC.Classes
+namespace Lab10_MVC.Models
 {
     public class Wine
     {
