@@ -41,3 +41,10 @@ Select and open `Lab10_MVC.sln`
 `2019-03-29`: Built out class structure based on converted JSON, added comments/pseudocode for planning
 
 `2019-04-01`: Wrote code to read and deserialize JSON; wrote LINQ queries; added basic UI
+
+`2019-04-11`: Finish controller, method for reading CSV and filtering and rendering results for user; add further styling.
+
+## Attribution
+
+* Andrew Roska ([Roketsu86](https://github.com/Roketsu86)) showed me how to read in a CSV file in a single elegant query using System.File and LINQ. He also pointed me to the .Skip() and .Take() methods. 
+* Website background image of vineyard: copyright 2019 [Michael Curtis Photography](https://www.michaelcurtisphotography.com/).

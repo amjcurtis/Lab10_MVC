@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Lab10_MVC.Classes;
+using Lab10_MVC.Models;
 
 namespace Lab10_MVC
 {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lab10_MVC.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,33 +9,38 @@ namespace Lab10_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        // First 'Index' action
-        [HttpGet]
+		/// <summary>
+		/// First 'Index' action
+		/// </summary>
+		/// <returns>Home view</returns>
+		[HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-		// Second 'Index' action
-	 //  [HttpPost]
-		//public IActionResult Index(int TargetPrice, int WineRating)
-		//{
-		//	//Args above will go into GetWineList method
+		/// <summary>
+		/// Second 'Index' action
+		/// </summary>
+		/// <param name="targetPrice">max wine price</param>
+		/// <param name="pointRating">min wine rating</param>
+		/// <returns>redirects to Results view</returns>
+		[HttpPost]
+		public IActionResult Index(int targetPrice, int pointRating)
+		{
+			return RedirectToAction("Results", new { targetPrice, pointRating });
+		}
 
-		//	// 
-
-		//	//Return a RedirectToAction
-
-
-		//}
-
-		// 'Result' action
-		//[HttpGet]
-		//public IActionResult Results(int TargetPrice, int WineRating)
-		//{
-		//	// Call method in parens of Results view
-		//	return View(GetWineList(TargetPrice, WineRating));
-
-		//}
+		/// <summary>
+		/// 'Results' action
+		/// </summary>
+		/// <param name="targetPrice">max wine price</param>
+		/// <param name="pointRating">min wine rating</param>
+		/// <returns>Results view</returns>
+		[HttpGet]
+		public IActionResult Results(int targetPrice, int pointRating)
+		{
+			return View(Wine.GetWineList(targetPrice, pointRating));
+		}
 	}
 }
